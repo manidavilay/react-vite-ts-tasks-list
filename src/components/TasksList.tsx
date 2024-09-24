@@ -1,9 +1,11 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../lib/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../lib/store";
+import { removeTask } from "../../lib/tasksSlice";
 import { Button, Grid2, Paper, Typography } from "@mui/material";
 
 const TasksList = () => {
   const { tasks } = useSelector((state: RootState) => state.tasks);
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <section>
@@ -21,7 +23,7 @@ const TasksList = () => {
                     </Grid2>
                     <Grid2 size={6} sx={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
                         <Button variant="outlined" color="primary" sx={{ mx: 1 }}>Mark Completed</Button>
-                        <Button variant="outlined" color="error" sx={{ mx: 1 }}>Remove Task</Button>
+                        <Button variant="outlined" color="error" sx={{ mx: 1 }} onClick={() => dispatch(removeTask({ id: task.id }))}>Remove Task</Button>
                     </Grid2>
                 </Grid2>
             </Paper>

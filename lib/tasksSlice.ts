@@ -29,9 +29,18 @@ const tasksSlice = createSlice({
                 createdAt: new Date().toISOString()
             }
             state.tasks.push(newTask)
+        },
+        removeTask: (state, action: PayloadAction<{ id: string }>) => {
+            const foundTask = state.tasks.find(task => task.id === action.payload.id)
+            if (foundTask) {
+                const foundTaskIndex = state.tasks.indexOf(foundTask)
+                if (foundTaskIndex > -1) {
+                    state.tasks.splice(foundTaskIndex, 1)
+                }
+            }
         }
     }
 })
 
-export const { addTask } = tasksSlice.actions
+export const { addTask, removeTask } = tasksSlice.actions
 export default tasksSlice.reducer
