@@ -8,11 +8,11 @@ interface Task {
     createdAt: string
 }
 
-interface TasksState {
+interface TaskState {
     tasks: Task[]
 }
 
-const initialState: TasksState = {
+const initialState: TaskState = {
     tasks: []
 }
 
