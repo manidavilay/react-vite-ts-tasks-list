@@ -22,3 +22,13 @@ This is a personal project built using **React**, **Vite**, and **TypeScript**. 
 - Deepen my understanding of **Redux** for state management in React applications
 - Gain experience using **Material UI** for building responsive and accessible UIs
 - Learn how to integrate **TypeScript** effectively into a React project
+
+## Installation
+- `npm create vite@latest``
+- Choose **React** and **TypeScript**
+- Run `npm i`
+- Run `npm install @reduxjs/toolkit react-redux`
+- Run `npm install @mui/material @emotion/react @emotion/styled @mui/icons-material`
+- Run project with `npm run dev`
+
+
