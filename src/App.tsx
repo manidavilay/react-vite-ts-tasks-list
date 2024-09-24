@@ -1,8 +1,12 @@
+import { Provider } from "react-redux";
+import store from "../lib/store"
 import "./App.css";
 
 function App() {
   return (
-    <div>React vite ts project</div>
+    <Provider store={store}>    
+      <div>React vite ts project</div>
+    </Provider>
   );
 }
 
