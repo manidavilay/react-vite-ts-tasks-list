@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+# Task List Management Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a personal project built using **React**, **Vite**, and **TypeScript**. The goal of this project is to improve and train my skills in **Redux** and **Material UI** by developing a task list management application.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Manage tasks with titles and frequencies (daily, weekly, monthly)
+- Edit, add, and remove tasks
+- Mark tasks as completed for the day
+- Responsive UI built with **Material UI**
+- State management using **Redux Toolkit**
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React** (with Vite for fast development)
+- **TypeScript** (for type-safe code)
+- **Redux Toolkit** (for managing application state)
+- **Material UI** (for building the user interface)
 
-- Configure the top-level `parserOptions` property like this:
+## Learning Goals
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Deepen my understanding of **Redux** for state management in React applications
+- Gain experience using **Material UI** for building responsive and accessible UIs
+- Learn how to integrate **TypeScript** effectively into a React project
