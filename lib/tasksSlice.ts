@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-interface Task {
+export interface Task {
     id: string,
     title: string,
     frequency: "daily" | "weekly" | "monthly",

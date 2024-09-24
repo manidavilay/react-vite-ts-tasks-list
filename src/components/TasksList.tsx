@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../lib/store";
-import { toggleStatus, removeTask } from "../../lib/tasksSlice";
-import { Button, Grid2, Paper, Typography } from "@mui/material";
+import { toggleStatus, removeTask, Task } from "../../lib/tasksSlice";
+import { Button, Grid2, LinearProgress, Paper, Typography } from "@mui/material";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 
@@ -9,6 +9,21 @@ const TasksList = () => {
   const { tasks } = useSelector((state: RootState) => state.tasks);
   const dispatch = useDispatch<AppDispatch>();
   const today = new Date().toISOString().split("T")[0]
+
+  const getStreak = (task: Task) => {
+    const currentDate = new Date()
+    let streak = 0
+    while (true) {
+        const currentDateString = currentDate.toISOString().split("T")[0]
+        if (task.completed.includes(currentDateString)) {
+            streak++;
+            currentDate.setDate(currentDate.getDate() - 1)
+        } else {
+            break;
+        }
+    }
+    return streak;
+  }
 
   return (
     <section>
@@ -52,6 +67,12 @@ const TasksList = () => {
                   Remove Task
                 </Button>
               </Grid2>
+            </Grid2>
+            <Grid2 sx={{ mt: 2 }}>
+                <Typography variant="body2">
+                    Current streak: {getStreak(task)} days
+                </Typography>
+                <LinearProgress variant="determinate" value={getStreak(task) / 30 * 100} />
             </Grid2>
           </Paper>
         );
