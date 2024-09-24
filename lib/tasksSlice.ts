@@ -30,17 +30,25 @@ const tasksSlice = createSlice({
             }
             state.tasks.push(newTask)
         },
-        removeTask: (state, action: PayloadAction<{ id: string }>) => {
+        toggleStatus: (state, action: PayloadAction<{ id: string, date: string }>) => {
             const foundTask = state.tasks.find(task => task.id === action.payload.id)
             if (foundTask) {
-                const foundTaskIndex = state.tasks.indexOf(foundTask)
+                const foundTaskIndex = foundTask.completed.indexOf(action.payload.date)
                 if (foundTaskIndex > -1) {
-                    state.tasks.splice(foundTaskIndex, 1)
+                    foundTask.completed.splice(foundTaskIndex, 1)
+                } else {
+                    foundTask.completed.push(action.payload.date)
                 }
             }
-        }
+        },
+        removeTask: (state, action: PayloadAction<{ id: string }>) => {
+            const foundTaskIndex = state.tasks.findIndex(task => task.id === action.payload.id)
+            if (foundTaskIndex > -1) {
+                state.tasks.splice(foundTaskIndex, 1)
+           }
+        }  
     }
 })
 
-export const { addTask, removeTask } = tasksSlice.actions
+export const { addTask, toggleStatus, removeTask } = tasksSlice.actions
 export default tasksSlice.reducer
